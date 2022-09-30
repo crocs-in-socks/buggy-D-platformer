@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
     public float sideSpeed = 8f;
     public float jumpSpeed = 16f;
     public bool isFacingRight = true;
+    public GameObject slashleft;
+    public GameObject slashright;
 
     public Rigidbody2D rb;
     public Transform groundCheck;
@@ -27,6 +29,15 @@ public class PlayerMovement : MonoBehaviour
         if(Input.GetButtonDown("Jump") && rb.velocity.y > 0f)
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
+        }
+        if(Input.GetKeyDown(KeyCode.E) && isFacingRight)
+        {
+            Instantiate(slashright,new Vector2(transform.position.x+2, transform.position.y),Quaternion.identity);
+        }
+        else if(Input.GetKeyDown(KeyCode.E) && isFacingRight==false)
+        {
+            Instantiate(slashleft,new Vector2(transform.position.x-2, transform.position.y),Quaternion.identity);
+            
         }
     }
 
