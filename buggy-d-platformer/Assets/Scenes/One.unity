@@ -178,6 +178,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground
       objectReference: {fileID: 0}
+    - target: {fileID: 5829083057545278438, guid: 2b32dabc256efd843b8d7e482b93994b, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5829083057545278438, guid: 2b32dabc256efd843b8d7e482b93994b, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b32dabc256efd843b8d7e482b93994b, type: 3}
 --- !u!1001 &6470752356550471487
