@@ -10,6 +10,13 @@ public class PlayerMovement : MonoBehaviour
     public bool isFacingRight = true;
     public GameObject slashleft;
     public GameObject slashright;
+    int i;
+
+    private float timebwattack;
+    public float starttimebwattack;
+    public Transform attackpos;
+    public float attackrange;
+    public LayerMask whatisenemy;
 
     public Rigidbody2D rb;
     public Transform groundCheck;
@@ -30,15 +37,38 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
         }
-        if(Input.GetKeyDown(KeyCode.E) && isFacingRight)
+        if(timebwattack<=0)
         {
-            Instantiate(slashright,new Vector2(transform.position.x+2, transform.position.y),Quaternion.identity);
+            if(Input.GetKeyDown(KeyCode.E) && isFacingRight)
+            {
+                Collider2D[] enemiestodamage = Physics2D.OverlapCircleAll(attackpos.position,attackrange,whatisenemy);
+                Instantiate(slashright,new Vector2(transform.position.x+2, transform.position.y),Quaternion.identity);
+                for(i=0;i<enemiestodamage.Length;i++)
+                {
+                    enemiestodamage[i].GetComponent<Enemy>().takedamage();
+                }
+            }
+            else if(Input.GetKeyDown(KeyCode.E) && isFacingRight==false)
+            {
+                
+                Collider2D[] enemiestodamage = Physics2D.OverlapCircleAll(attackpos.position,attackrange,whatisenemy);
+                Instantiate(slashleft,new Vector2(transform.position.x-2, transform.position.y),Quaternion.identity);
+                for(i=0;i<enemiestodamage.Length;i++)
+                {
+                    enemiestodamage[i].GetComponent<Enemy>().takedamage();
+                
+            }
+            timebwattack = starttimebwattack;
+            }
         }
-        else if(Input.GetKeyDown(KeyCode.E) && isFacingRight==false)
-        {
-            Instantiate(slashleft,new Vector2(transform.position.x-2, transform.position.y),Quaternion.identity);
-            
+        else{
+            timebwattack -= Time.deltaTime;
         }
+    }
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(attackpos.position,attackrange);
     }
 
     void FixedUpdate()
