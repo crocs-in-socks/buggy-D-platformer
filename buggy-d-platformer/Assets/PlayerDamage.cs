@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PlayerDamage : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public Transform camera;
+    public GameObject poof;
     void Start()
     {
         
@@ -13,7 +14,9 @@ public class PlayerDamage : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log("Damage");
+            camera.parent = null;
+            Instantiate(poof,gameObject.transform.position,Quaternion.identity);
+            Destroy(gameObject);
         }
     }
 
