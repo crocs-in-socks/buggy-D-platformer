@@ -10,6 +10,8 @@ public class Enemy : MonoBehaviour
     public SpriteRenderer sprite4;
     public SpriteRenderer sprite5;
     public SpriteRenderer sprite6;
+    public GameObject hitfx;
+    public GameObject hitfxPosition;
     void Start()
     {
         
@@ -19,6 +21,7 @@ public class Enemy : MonoBehaviour
 
     public void takedamage()
     {
+        Instantiate(hitfx,hitfxPosition.transform.position,Quaternion.identity);
         StartCoroutine("FlashRed");
         health-=1f;
     }
