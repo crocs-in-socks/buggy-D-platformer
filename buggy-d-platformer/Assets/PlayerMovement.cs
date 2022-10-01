@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float horizontal;
-    public float sideSpeed = 8f;
-    public float jumpSpeed = 16f;
-    public bool isFacingRight = true;
+    
     public GameObject slashleft;
     public GameObject slashright;
     int i;
@@ -19,24 +16,42 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask whatisenemy;
 
     public Rigidbody2D rb;
-    public Transform groundCheck;
-    public LayerMask groundLayer;
 
-    // Update is called once per frame
+    //Movement Variables
+    public float speed;
+    private float moveInput;
+    public float jumpForce;
+    private bool isFacingRight = true;
+
+    public bool isGrounded;
+    public Transform groundCheck;
+    public float checkRadius;
+    public LayerMask whatIsGround;
+
+    void FixedUpdate()
+    {
+        moveInput = Input.GetAxisRaw("Horizontal");
+        rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
+
+        if(isFacingRight == false && moveInput > 0)
+        {
+            Flip();
+        }
+        else if(isFacingRight == true && moveInput < 0)
+        {
+            Flip();
+        }
+
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
+    }
+
     void Update()
     {
-        horizontal = Input.GetAxisRaw("Horizontal");
-        Flip();
-
-        if(Input.GetButtonDown("Jump") && IsGrounded())
+        if(isGrounded == true && Input.GetKey(KeyCode.Space))
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
+            rb.velocity = Vector2.up * jumpForce;
         }
 
-        if(Input.GetButtonDown("Jump") && rb.velocity.y > 0f)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
-        }
         if(timebwattack<=0)
         {
             if(Input.GetKeyDown(KeyCode.E) && isFacingRight)
@@ -65,30 +80,18 @@ public class PlayerMovement : MonoBehaviour
             timebwattack -= Time.deltaTime;
         }
     }
+
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(attackpos.position,attackrange);
     }
 
-    void FixedUpdate()
-    {
-        rb.velocity = new Vector2(horizontal * sideSpeed, rb.velocity.y);
-    }
-
-    bool IsGrounded()
-    {
-        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
-    }
-
     void Flip()
     {
-        if(isFacingRight && horizontal < 0 || !isFacingRight && horizontal > 0)
-        {
-            isFacingRight = !isFacingRight;
-            Vector3 localScale = transform.localScale;
-            localScale.x *= -1f;
-            transform.localScale = localScale;
-        }
+        isFacingRight = !isFacingRight;
+        Vector3 Scaler = transform.localScale;
+        Scaler.x *= -1f;
+        transform.localScale = Scaler;
     }
 }
