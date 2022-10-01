@@ -15558,23 +15558,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4257508509235537429, guid: 5288e2aad38df394d84de24d11870999, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.67403275
+      value: 0.69755465
       objectReference: {fileID: 0}
     - target: {fileID: 4257508509235537429, guid: 5288e2aad38df394d84de24d11870999, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4257508509235537429, guid: 5288e2aad38df394d84de24d11870999, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4257508509235537429, guid: 5288e2aad38df394d84de24d11870999, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.7387015
+      value: 0.71653163
       objectReference: {fileID: 0}
     - target: {fileID: 4257508509235537429, guid: 5288e2aad38df394d84de24d11870999, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: 91.538
       objectReference: {fileID: 0}
     - target: {fileID: 6056577124024516687, guid: 5288e2aad38df394d84de24d11870999, type: 3}
       propertyPath: m_LocalScale.x
@@ -21611,7 +21611,7 @@ MonoBehaviour:
     m_Bits: 64
   rb: {fileID: 1289741014}
   speed: 10
-  jumpForce: 15
+  jumpForce: 20
   isGrounded: 0
   groundCheck: {fileID: 10062897}
   checkRadius: 0.2
