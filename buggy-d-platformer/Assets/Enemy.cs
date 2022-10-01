@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
     public SpriteRenderer sprite6;
     public GameObject hitfx;
     public GameObject hitfxPosition;
+    public GameObject deathfx;
     void Start()
     {
         
@@ -45,6 +46,7 @@ public class Enemy : MonoBehaviour
     {
         if (health<=0)
         {
+            Instantiate(deathfx,hitfxPosition.transform.position,Quaternion.identity);
             Destroy(gameObject);
         }
     }

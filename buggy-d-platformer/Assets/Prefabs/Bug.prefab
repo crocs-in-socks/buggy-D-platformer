@@ -197,6 +197,7 @@ MonoBehaviour:
   sprite6: {fileID: 9201637781036244260}
   hitfx: {fileID: 3784902090229188008, guid: b8a22c22b3325fc449a56aea8f3cdf94, type: 3}
   hitfxPosition: {fileID: 52401626928728604}
+  deathfx: {fileID: 1967835574231978638, guid: 44af2f7a6df2535438b68fbf73a28a5f, type: 3}
   health: 3
 --- !u!1 &2457698606940615980
 GameObject:
@@ -1047,8 +1048,8 @@ MonoBehaviour:
   - {fileID: 6864144061857823149}
   - {fileID: 2474810393350411527}
   m_Bounds:
-    m_Center: {x: 0.2202034, y: -0.916302, z: 0}
-    m_Extent: {x: 1.0760717, y: 0.916302, z: 0}
+    m_Center: {x: 0.2202053, y: -0.916302, z: 0}
+    m_Extent: {x: 1.0760736, y: 0.916302, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -1260,8 +1261,8 @@ MonoBehaviour:
   - {fileID: 8807682752646527117}
   - {fileID: 5716977344644856547}
   m_Bounds:
-    m_Center: {x: 0.13020754, y: -1.3605806, z: 0}
-    m_Extent: {x: 1.1573541, y: 0.6594976, z: 0}
+    m_Center: {x: 0.13020563, y: -1.3605806, z: 0}
+    m_Extent: {x: 1.157356, y: 0.6594976, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
