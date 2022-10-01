@@ -17,6 +17,9 @@ public class PlayerMovement : MonoBehaviour
 
     public Rigidbody2D rb;
 
+    // For Animations
+    private Animator anime_man;
+
     //Movement Variables
     public float speed;
     private float moveInput;
@@ -27,6 +30,11 @@ public class PlayerMovement : MonoBehaviour
     public Transform groundCheck;
     public float checkRadius;
     public LayerMask whatIsGround;
+
+    void Start()
+    {
+        anime_man = GetComponent<Animator>();
+    }
 
     void FixedUpdate()
     {
@@ -49,7 +57,26 @@ public class PlayerMovement : MonoBehaviour
     {
         if(isGrounded == true && Input.GetKey(KeyCode.Space))
         {
+            anime_man.SetTrigger("TakeOff");
             rb.velocity = Vector2.up * jumpForce;
+        }
+
+        if(isGrounded == false)
+        {
+            anime_man.SetBool("IsJumping", true);
+        }
+        else
+        {
+            anime_man.SetBool("IsJumping", false);
+        }
+
+        if(moveInput == 0)
+        {
+            anime_man.SetBool("IsRunning", false);
+        }
+        else
+        {
+            anime_man.SetBool("IsRunning", true);
         }
 
         if(timebwattack<=0)
