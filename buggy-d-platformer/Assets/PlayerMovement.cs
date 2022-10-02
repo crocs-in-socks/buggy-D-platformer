@@ -102,7 +102,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     enemiestodamage[i].GetComponent<Enemy>().takedamage();
                 }
-                anime_man.SetTrigger("LSlash");
+                anime_man.SetTrigger("RSlash");
             timebwattack = starttimebwattack;
             }
         }
