@@ -15,6 +15,7 @@ public class PlayerDamage : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             camera.parent = null;
+            FindObjectOfType<AudioManager>().Play("Player_death");
             Instantiate(poof,gameObject.transform.position,Quaternion.identity);
             Destroy(gameObject);
         }
