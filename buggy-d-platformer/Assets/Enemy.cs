@@ -46,6 +46,7 @@ public class Enemy : MonoBehaviour
     {
         if (health<=0)
         {
+            FindObjectOfType<AudioManager>().Play("Enemy_death");
             Instantiate(deathfx,hitfxPosition.transform.position,Quaternion.identity);
             Destroy(gameObject);
         }

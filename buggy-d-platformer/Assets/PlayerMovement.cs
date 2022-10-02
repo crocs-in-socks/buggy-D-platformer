@@ -92,6 +92,7 @@ public class PlayerMovement : MonoBehaviour
                     enemiestodamage[i].GetComponent<Enemy>().takedamage();
                 }
                 anime_man.SetTrigger("RSlash");
+                FindObjectOfType<AudioManager>().Play("Slash");
             }
             else if(Input.GetKeyDown(KeyCode.E) && isFacingRight==false)
             {
@@ -103,6 +104,7 @@ public class PlayerMovement : MonoBehaviour
                     enemiestodamage[i].GetComponent<Enemy>().takedamage();
                 }
                 anime_man.SetTrigger("RSlash");
+                FindObjectOfType<AudioManager>().Play("Slash");
             timebwattack = starttimebwattack;
             }
         }

@@ -121199,6 +121199,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
+    - target: {fileID: 2088816162961059363, guid: f047df0f500feb948807fcdeb63fda0b, type: 3}
+      propertyPath: sounds.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2088816162961059363, guid: f047df0f500feb948807fcdeb63fda0b, type: 3}
+      propertyPath: sounds.Array.data[3].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: f11db4559b3ffff45b62e9327fc5535d, type: 3}
+    - target: {fileID: 2088816162961059363, guid: f047df0f500feb948807fcdeb63fda0b, type: 3}
+      propertyPath: sounds.Array.data[3].name
+      value: Slash
+      objectReference: {fileID: 0}
+    - target: {fileID: 2088816162961059363, guid: f047df0f500feb948807fcdeb63fda0b, type: 3}
+      propertyPath: sounds.Array.data[4].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 566d2ea6240b489479a6e9fd608c2621, type: 3}
+    - target: {fileID: 2088816162961059363, guid: f047df0f500feb948807fcdeb63fda0b, type: 3}
+      propertyPath: sounds.Array.data[4].name
+      value: Enemy_death
+      objectReference: {fileID: 0}
+    - target: {fileID: 2088816162961059363, guid: f047df0f500feb948807fcdeb63fda0b, type: 3}
+      propertyPath: sounds.Array.data[3].pitch
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2088816162961059363, guid: f047df0f500feb948807fcdeb63fda0b, type: 3}
+      propertyPath: sounds.Array.data[4].pitch
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2088816162961059363, guid: f047df0f500feb948807fcdeb63fda0b, type: 3}
+      propertyPath: sounds.Array.data[3].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2088816162961059363, guid: f047df0f500feb948807fcdeb63fda0b, type: 3}
+      propertyPath: sounds.Array.data[4].volume
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2088816162961059388, guid: f047df0f500feb948807fcdeb63fda0b, type: 3}
       propertyPath: m_RootOrder
       value: 0
