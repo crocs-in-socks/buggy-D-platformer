@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask whatisenemy;
 
     public Rigidbody2D rb;
+    public AudioSource audio;
 
     // For Animations
     private Animator anime_man;
@@ -59,6 +60,7 @@ public class PlayerMovement : MonoBehaviour
         {
             anime_man.SetTrigger("TakeOff");
             rb.velocity = Vector2.up * jumpForce;
+            FindObjectOfType<AudioManager>().Play("Jumping");
         }
 
         if(isGrounded == false)
@@ -89,6 +91,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     enemiestodamage[i].GetComponent<Enemy>().takedamage();
                 }
+                anime_man.SetTrigger("RSlash");
             }
             else if(Input.GetKeyDown(KeyCode.E) && isFacingRight==false)
             {
@@ -98,8 +101,8 @@ public class PlayerMovement : MonoBehaviour
                 for(i=0;i<enemiestodamage.Length;i++)
                 {
                     enemiestodamage[i].GetComponent<Enemy>().takedamage();
-                
-            }
+                }
+                anime_man.SetTrigger("LSlash");
             timebwattack = starttimebwattack;
             }
         }
@@ -120,5 +123,21 @@ public class PlayerMovement : MonoBehaviour
         Vector3 Scaler = transform.localScale;
         Scaler.x *= -1f;
         transform.localScale = Scaler;
+        Debug.Log("Flipped");
+    }
+
+    void Footsteps()
+    {
+        if(moveInput != 0 && isGrounded == true)
+        {
+            if(audio.isPlaying == false)
+            {
+                audio.Play();
+            }
+            else
+            {
+                audio.Stop();
+            }
+        }
     }
 }
